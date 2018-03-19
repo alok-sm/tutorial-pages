@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://seankross.com/the-unix-workbench/git-and-github.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Unix Workbench</title>
+  <meta name="description" content="The Unix Workbench">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The Unix Workbench">
+  <meta property="og:type" content="book">
+  <meta property="og:url" content="https://github.com/seankross/the-unix-workbench">
+  <meta property="og:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png">
+  
+  <meta name="github-repo" content="seankross/the-unix-workbench">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Unix Workbench">
+  
+  
+  <meta name="twitter:image" content="https://github.com/seankross/the-unix-workbenchimages/cover.png">
+
+<meta name="author" content="Sean Kross">
+
+
+<meta name="date" content="2018-03-05">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="http://seankross.com/the-unix-workbench/bash-programming.html">
+<link rel="next" href="http://seankross.com/the-unix-workbench/nephology.html">
+<script src="./The Unix Workbench_files/jquery.min.js"></script>
+<script src="./The Unix Workbench_files/iframeResizer.content.min.js"></script>
+<link href="./The Unix Workbench_files/style.css" rel="stylesheet">
+<link href="./The Unix Workbench_files/plugin-bookdown.css" rel="stylesheet">
+<link href="./The Unix Workbench_files/plugin-highlight.css" rel="stylesheet">
+<link href="./The Unix Workbench_files/plugin-search.css" rel="stylesheet">
+<link href="./The Unix Workbench_files/plugin-fontsettings.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="./The Unix Workbench_files/style(1).css" type="text/css">
+</head>
+
+<body style="">
+
+
+
+  <div class="book without-animation with-summary   font-size-2 font-family-1" data-basepath=".">
+
+    <div class="slug" style="animation: none 0s ease 0s 1 normal none running; background: none; background-blend-mode: normal; border: none; border-radius: 0px; border-collapse: separate; bottom: 0px; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; caption-side: top; clear: none; clip: auto; color: rgb(54, 65, 73); cursor: auto; direction: ltr; display: block; empty-cells: show; float: none; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-kerning: auto; font-size: 14px; font-stretch: 100%; font-style: normal; font-variant: normal; font-weight: 400; height: 874px; image-rendering: auto; isolation: auto; place-items: normal; place-self: auto; left: 0px; letter-spacing: 0.2px; line-height: normal; list-style: disc outside none; margin: 0px; max-height: none; max-width: none; min-height: 0px; min-width: 0px; mix-blend-mode: normal; object-fit: fill; object-position: 50% 50%; offset: none 0px auto 0deg; opacity: 1; orphans: 2; outline: rgb(54, 65, 73) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: normal; overflow: visible; padding: 0px; pointer-events: none; position: absolute; resize: none; right: 698px; scroll-behavior: auto; speak: normal; table-layout: auto; tab-size: 8; text-align: start; text-align-last: auto; text-decoration: none solid rgb(54, 65, 73); text-decoration-skip-ink: auto; text-underline-position: auto; text-indent: 0px; text-rendering: optimizeLegibility; text-shadow: none; text-size-adjust: 100%; text-overflow: clip; text-transform: none; top: 0px; touch-action: auto; transition: none 0s ease 0s; unicode-bidi: normal; vertical-align: baseline; visibility: visible; white-space: normal; widows: 2; width: 299px; will-change: auto; word-break: normal; word-spacing: 0px; word-wrap: normal; z-index: 1; zoom: 1; -webkit-appearance: none; backface-visibility: visible; border-spacing: 0px; -webkit-border-image: none; -webkit-box-align: stretch; -webkit-box-decoration-break: slice; -webkit-box-direction: normal; -webkit-box-flex: 0; -webkit-box-flex-group: 1; -webkit-box-lines: single; -webkit-box-ordinal-group: 1; -webkit-box-orient: horizontal; -webkit-box-pack: start; columns: auto auto; column-gap: normal; column-rule: 0px none rgb(54, 65, 73); column-span: none; place-content: normal; flex: 0 1 auto; flex-flow: row nowrap; -webkit-font-smoothing: antialiased; grid-auto-columns: auto; grid-auto-flow: row; grid-auto-rows: auto; grid-area: auto / auto / auto / auto; grid-template-areas: none; grid-template-columns: none; grid-template-rows: none; grid-gap: 0px 0px; -webkit-highlight: none; hyphens: manual; -webkit-hyphenate-character: auto; -webkit-line-break: auto; -webkit-locale: auto; -webkit-margin-collapse: collapse collapse; -webkit-mask-box-image-source: none; -webkit-mask-box-image-slice: 0 fill; -webkit-mask-box-image-width: auto; -webkit-mask-box-image-outset: 0px; -webkit-mask-box-image-repeat: stretch; -webkit-mask: none 0% 0% / auto repeat border-box border-box; -webkit-mask-composite: source-over; order: 0; perspective: none; perspective-origin: 150px 437px; -webkit-print-color-adjust: economy; -webkit-rtl-ordering: logical; shape-outside: none; shape-image-threshold: 0; shape-margin: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-combine: none; -webkit-text-decorations-in-effect: none; -webkit-text-emphasis: none rgb(54, 65, 73); -webkit-text-emphasis-position: over right; -webkit-text-fill-color: rgb(54, 65, 73); -webkit-text-orientation: vertical-right; -webkit-text-security: none; -webkit-text-stroke: 0px rgb(54, 65, 73); transform: none; transform-origin: 150px 437px 0px; transform-style: flat; -webkit-user-drag: auto; -webkit-user-modify: read-only; user-select: auto; -webkit-writing-mode: horizontal-tb; -webkit-app-region: no-drag; buffered-rendering: auto; clip-path: none; clip-rule: nonzero; mask: none; filter: none; flood-color: rgb(0, 0, 0); flood-opacity: 1; lighting-color: rgb(255, 255, 255); stop-color: rgb(0, 0, 0); stop-opacity: 1; color-interpolation: sRGB; color-interpolation-filters: linearRGB; color-rendering: auto; fill: rgb(0, 0, 0); fill-opacity: 1; fill-rule: nonzero; marker: none; mask-type: luminance; shape-rendering: auto; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0px; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1; stroke-width: 1px; alignment-baseline: auto; baseline-shift: 0px; dominant-baseline: auto; text-anchor: start; writing-mode: horizontal-tb; vector-effect: none; paint-order: fill; d: none; cx: 0px; cy: 0px; x: 0px; y: 0px; r: 0px; rx: auto; ry: auto; caret-color: rgb(54, 65, 73); line-break: auto;"></div>
+
+    <div class="book-body fixed">
+      <div class="body-inner">
+        <div class="slug" style="animation: none 0s ease 0s 1 normal none running; background: none; background-blend-mode: normal; border: none; border-radius: 0px; border-collapse: separate; bottom: 824px; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; caption-side: top; clear: none; clip: auto; color: rgb(126, 136, 139); cursor: auto; direction: ltr; display: block; empty-cells: show; float: none; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-kerning: auto; font-size: 11.9px; font-stretch: 100%; font-style: normal; font-variant: normal; font-weight: 400; height: 49px; image-rendering: auto; isolation: auto; place-items: normal; place-self: auto; left: 300px; letter-spacing: 0.2px; line-height: normal; list-style: disc outside none; margin: 0px; max-height: none; max-width: none; min-height: 0px; min-width: 0px; mix-blend-mode: normal; object-fit: fill; object-position: 50% 50%; offset: none 0px auto 0deg; opacity: 1; orphans: 2; outline: rgb(126, 136, 139) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: normal; overflow: visible; padding: 0px 8px; pointer-events: none; position: fixed; resize: none; right: 0px; scroll-behavior: auto; speak: normal; table-layout: auto; tab-size: 8; text-align: start; text-align-last: auto; text-decoration: none solid rgb(126, 136, 139); text-decoration-skip-ink: auto; text-underline-position: auto; text-indent: 0px; text-rendering: optimizeLegibility; text-shadow: none; text-size-adjust: 100%; text-overflow: clip; text-transform: none; top: 0px; touch-action: auto; transition: all 0s ease 0s; unicode-bidi: normal; vertical-align: baseline; visibility: visible; white-space: normal; widows: 2; width: 682px; will-change: auto; word-break: normal; word-spacing: 0px; word-wrap: normal; z-index: 2; zoom: 1; -webkit-appearance: none; backface-visibility: visible; border-spacing: 0px; -webkit-border-image: none; -webkit-box-align: stretch; -webkit-box-decoration-break: slice; -webkit-box-direction: normal; -webkit-box-flex: 0; -webkit-box-flex-group: 1; -webkit-box-lines: single; -webkit-box-ordinal-group: 1; -webkit-box-orient: horizontal; -webkit-box-pack: start; columns: auto auto; column-gap: normal; column-rule: 0px none rgb(126, 136, 139); column-span: none; place-content: normal; flex: 0 1 auto; flex-flow: row nowrap; -webkit-font-smoothing: antialiased; grid-auto-columns: auto; grid-auto-flow: row; grid-auto-rows: auto; grid-area: auto / auto / auto / auto; grid-template-areas: none; grid-template-columns: none; grid-template-rows: none; grid-gap: 0px 0px; -webkit-highlight: none; hyphens: manual; -webkit-hyphenate-character: auto; -webkit-line-break: auto; -webkit-locale: auto; -webkit-margin-collapse: collapse collapse; -webkit-mask-box-image-source: none; -webkit-mask-box-image-slice: 0 fill; -webkit-mask-box-image-width: auto; -webkit-mask-box-image-outset: 0px; -webkit-mask-box-image-repeat: stretch; -webkit-mask: none 0% 0% / auto repeat border-box border-box; -webkit-mask-composite: source-over; order: 0; perspective: none; perspective-origin: 349px 25px; -webkit-print-color-adjust: economy; -webkit-rtl-ordering: logical; shape-outside: none; shape-image-threshold: 0; shape-margin: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-combine: none; -webkit-text-decorations-in-effect: none; -webkit-text-emphasis: none rgb(126, 136, 139); -webkit-text-emphasis-position: over right; -webkit-text-fill-color: rgb(126, 136, 139); -webkit-text-orientation: vertical-right; -webkit-text-security: none; -webkit-text-stroke: 0px rgb(126, 136, 139); transform: none; transform-origin: 349px 25px 0px; transform-style: flat; -webkit-user-drag: auto; -webkit-user-modify: read-only; user-select: auto; -webkit-writing-mode: horizontal-tb; -webkit-app-region: no-drag; buffered-rendering: auto; clip-path: none; clip-rule: nonzero; mask: none; filter: none; flood-color: rgb(0, 0, 0); flood-opacity: 1; lighting-color: rgb(255, 255, 255); stop-color: rgb(0, 0, 0); stop-opacity: 1; color-interpolation: sRGB; color-interpolation-filters: linearRGB; color-rendering: auto; fill: rgb(0, 0, 0); fill-opacity: 1; fill-rule: nonzero; marker: none; mask-type: luminance; shape-rendering: auto; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0px; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1; stroke-width: 1px; alignment-baseline: auto; baseline-shift: 0px; dominant-baseline: auto; text-anchor: start; writing-mode: horizontal-tb; vector-effect: none; paint-order: fill; d: none; cx: 0px; cy: 0px; x: 0px; y: 0px; r: 0px; rx: auto; ry: auto; caret-color: rgb(126, 136, 139); line-break: auto;"></div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="git-and-github" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Git and GitHub</h1>
+<blockquote>
+<p>Proof rather than argument. - Japanese proverb</p>
+</blockquote>
+<div id="what-are-git-and-github" class="section level2">
+<h2><span class="header-section-number">6.1</span> What are Git and GitHub?</h2>
+<p>Git is a command line program which allows you to track versions of any code or plain text documents that you create. Like the “track changes” feature of a word processor Git keeps track of who made particular changes, the time and date of those changes, and where the changes were made. If a critical file gets deleted by accident, or if you make a breaking change to your code and you want to try to figure out where the breaking change was made, you can use Git to restore the deleted file or find the new bug in your program. Git organizes groups of files that you’re tracking into a <strong>repository</strong>, which is just a directory where all of the changes to files in that directory are tracked. Git can also help you collaborate with others when you’re writing software. As <a href="https://twitter.com/kwbroman">Karl Broman</a> says (paraphrasing <a href="https://twitter.com/mtholder">Mark Holder</a>): “Your closest collaborator is you six months ago, but you don’t reply to emails.”</p>
+<p>GitHub is a website that provides remote Git repositories. A remote repository is just a Git repository that you’re able to access over an internet connection. GitHub allows you to create public remote repositories for free, and anyone can see your code in these public repositories. If you want to keep your code private then you can pay GitHub for private remote repositories.</p>
+<p>If you’re working on code together with a friend GitHub can help you sync changes to code files between you and your friend. There’s also a social and community aspect to GitHub, since you can watch other programmers develop their projects. GitHub also makes it easy to jump in and help somebody with their project. GitHub offers many other useful features which we will discuss at length.</p>
+</div>
+<div id="setting-up-git-and-github" class="section level2">
+<h2><span class="header-section-number">6.2</span> Setting Up Git and GitHub</h2>
+<p>Before setting up Git, go to <a href="https://github.com/">GitHub</a> and create a free account. Take note of which email address you use and which username you choose.</p>
+<p>To see if you have Git installed open up your terminal and enter the following:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> --version</code></pre></div>
+<pre><code>## git version 2.14.3 (Apple Git-98)</code></pre>
+<p>If you don’t get a response back telling you the version of Git that you have installed then you need to install Git. You can find instructions for installing Git on your operating system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
+<p>Open up your shell once you have git installed and run <code>git --version</code> again to make sure that installation succeeded (you may need to restart your shell or your computer). After Git is installed we need to set up two environmental variables, but we only need to do this once. The first variable we need to set up with Git is your GitHub user name, and the second variable is the email address that you used to create your GitHub account:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global user.name <span class="st">"myUserName"</span>
+<span class="fu">git</span> config --global user.email myName@email.com</code></pre></div>
+</div>
+<div id="getting-started-with-git" class="section level2">
+<h2><span class="header-section-number">6.3</span> Getting Started with Git</h2>
+<p>Let’s create our first Git repository. First we need to create a directory:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
+<span class="fu">mkdir</span> my-first-repo
+<span class="bu">cd</span> my-first-repo</code></pre></div>
+<p>“Repo” in this case is just shorthand for “repository.” To start tracking files with Git in a directory enter <code>git init</code> into the command line:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> init</code></pre></div>
+<pre><code>## Initialized empty Git repository in /Users/sean/my-first-repo/.git/</code></pre>
+<p>You’ve just created your first repository! Now let’s create a file and start tracking it.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">"Welcome to My First Repo"</span> <span class="op">&gt;</span> readme.txt</code></pre></div>
+<p>Now that we’ve created a file in this Git repository, let’s use <code>git status</code> to see what’s going on in this repository. We’ll be using <code>git status</code> continuously throughout this chapter in order to get information about the status of this Git repository.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+##
+## Initial commit
+##
+## Untracked files:
+##   (use "git add &lt;file&gt;..." to include in what will be committed)
+##
+##  readme.txt
+##
+## nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+<p>As you can see <code>readme.txt</code> is listed as an untracked file. In order to let Git know that you want to track this file we need to use <code>git add</code> with the name of the file that we want to track. Let’s start tracking <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> add readme.txt</code></pre></div>
+<p>Git now knows to track any changes to <code>readme.txt</code>. Let’s see how the status of the repository has changed:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+##
+## Initial commit
+##
+## Changes to be committed:
+##   (use "git rm --cached &lt;file&gt;..." to unstage)
+##
+##  new file:   readme.txt
+##</code></pre>
+<p>Git is now tracking <code>readme.txt</code>, or in Git-specific language <code>readme.txt</code> is now <strong>staged</strong>. Between the parentheses in the message above you can see that <code>git status</code> is giving us a tip about how to unstage (or un-track) this file, which we could do with <code>git rm --cached readme.txt</code>. Let’s unstage this file just to see what happens:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> rm --cached readme.txt</code></pre></div>
+<pre><code>## rm 'readme.txt'</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+##
+## Initial commit
+##
+## Untracked files:
+##   (use "git add &lt;file&gt;..." to include in what will be committed)
+##
+##  readme.txt
+##</code></pre>
+<p>Our repository is right back to the way it started with <code>readme.txt</code> as an unstaged file. Let’s start tracking <code>readme.txt</code> again so we can move on to cooler Git features.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> add readme.txt</code></pre></div>
+<p>Now that Git is tracking <code>readme.txt</code> we need to create a milestone to indicate the changes that we made to <code>readme.txt</code>. In this case, the changes that we made were creating the file in the first place! This milestone is called a <strong>commit</strong> in Git. A commit logs the content of all of the currently staged files. Right now we only have <code>readme.txt</code> staged so let’s commit the creation of this file. When making a Git commit, we need to write a commit message which is specified after the <code>-m</code> flag. The message should briefly describe what changes you’ve made since the last commit.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> commit -m <span class="st">"added readme.txt"</span></code></pre></div>
+<pre><code>## [master (root-commit) 73e53ca] added readme.txt
+##  1 file changed, 1 insertion(+)
+##  create mode 100644 readme.txt</code></pre>
+<p>The message above confirms that the commit succeeded and it summarizes the changes that took place since the last commit. As you can see in the message we only changed one file, and we only changed one line in that file. Let’s run <code>git status</code> again to see the state of our repository after we’ve made the first commit:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## nothing to commit, working tree clean</code></pre>
+<p>All of the changes to the files in this repository have been committed! Let’s add a few more files to this repository and commit them.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> file1.txt
+<span class="fu">touch</span> fil2.txt
+<span class="fu">ls</span></code></pre></div>
+<pre><code>## file1.txt
+## fil2.txt
+## readme.txt</code></pre>
+<p>While we’re at it let’s also add a new line of text to <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">"Learning Git is going well so far."</span> <span class="op">&gt;&gt;</span> readme.txt</code></pre></div>
+<p>Now that we’ve added two more files and we’ve made changes to one file let’s take a look at the state of this repository.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes not staged for commit:
+##   (use "git add &lt;file&gt;..." to update what will be committed)
+##   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+##
+##  modified:   readme.txt
+##
+## Untracked files:
+##   (use "git add &lt;file&gt;..." to include in what will be committed)
+##
+##  fil2.txt
+##  file1.txt
+##
+## no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+<p>We can see that Git has detected that one file has been modified, and that there are two files in this directory that it is not tracking. Now we need to tell Git to track the changes to these files. We could tell Git to track changes to each file using <code>git add</code>, or since all of the files in this repository are <code>.txt</code> files we could use a wildcard and enter <code>git add *.txt</code> into the console. However if we want to track all of the changes to all of the files in our directory we should use the command <code>git add -A</code>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> add -A
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use "git reset HEAD &lt;file&gt;..." to unstage)
+##
+##  new file:   fil2.txt
+##  new file:   file1.txt
+##  modified:   readme.txt
+##</code></pre>
+<p>Now the changes to all of the files in this repository are being tracked. Finally let’s commit these changes:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> commit -m <span class="st">"added two files"</span></code></pre></div>
+<pre><code>## [master 53a1983] added two files
+##  3 files changed, 1 insertion(+)
+##  create mode 100644 fil2.txt
+##  create mode 100644 file1.txt</code></pre>
+<p>Darn it, now looking at this commit summary I realize that I have a typo in one of the names of my files! Thankfully we can undo the most recent commit with the command <code>git reset --soft HEAD~</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> reset --soft HEAD~
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use "git reset HEAD &lt;file&gt;..." to unstage)
+##
+##  new file:   fil2.txt
+##  new file:   file1.txt
+##  modified:   readme.txt
+##</code></pre>
+<p>This repo is now in that exact same state it was right before we made the commit. Now we can rename <code>fil2.txt</code> to <code>file2.txt</code>, then let’s look at the status of the repository again.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mv</span> fil2.txt file2.txt
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use "git reset HEAD &lt;file&gt;..." to unstage)
+##
+##  new file:   fil2.txt
+##  new file:   file1.txt
+##  modified:   readme.txt
+##
+## Changes not staged for commit:
+##   (use "git add/rm &lt;file&gt;..." to update what will be committed)
+##   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+##
+##  deleted:    fil2.txt
+##
+## Untracked files:
+##   (use "git add &lt;file&gt;..." to include in what will be committed)
+##
+##  file2.txt
+##</code></pre>
+<p>We previously told Git to track <code>fil2.txt</code>, and we can see that Git acknowledges that the file has been deleted. We can bring Git up to speed with what files it should be tracking with <code>git add -A</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> add -A
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes to be committed:
+##   (use "git reset HEAD &lt;file&gt;..." to unstage)
+##
+##  new file:   file1.txt
+##  new file:   file2.txt
+##  modified:   readme.txt
+##</code></pre>
+<p>Finally we got the file names right! Now let’s make the correct commit:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> commit -m <span class="st">"added two files"</span></code></pre></div>
+<pre><code>## [master 12bb9f5] added two files
+##  3 files changed, 1 insertion(+)
+##  create mode 100644 file1.txt
+##  create mode 100644 file2.txt</code></pre>
+<p>That looks much better.</p>
+<div id="summary-20" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Summary</h3>
+<ul>
+<li>Git tracks changes to plain text files (code files and text documents).</li>
+<li>A directory where changes to files are tracked by Git is called a Git repository.</li>
+<li>Change your working directory, then run <code>git init</code> to start a repository.</li>
+<li>You can track changes to a file using <code>git add [names of files]</code>.</li>
+<li>You can create a milestone about the state of your files using <code>git commit -m "message about changes since the last commit"</code>.</li>
+<li>To examine the state of files in your repository use <code>git status</code>.</li>
+</ul>
+</div>
+<div id="exercises-17" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Start a repository in a new directory.</li>
+<li>Create a new file in your new Git repository. Make sure Git is tracking the file and then create a new commit.</li>
+<li>Make changes to the file, and then commit these changes.</li>
+<li>Add two new files to your repository, but only commit one of them. What is the status of your repository after the commit?</li>
+<li>Undo the last commit, add the untracked file, and redo the commit.</li>
+</ol>
+</div>
+</div>
+<div id="important-git-features" class="section level2">
+<h2><span class="header-section-number">6.4</span> Important Git Features</h2>
+<div id="getting-help-logs-and-diffs" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Getting Help, Logs, and Diffs</h3>
+<p>Git commands have their own <code>man</code> pages. You can access them with <code>git help [name of command]</code>. For example here’s the start of the help page for <code>git status</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> help status</code></pre></div>
+<pre><code>GIT-STATUS(1)                                Git Manual                               GIT-STATUS(1)
+
+NAME
+       git-status - Show the working tree status
+
+SYNOPSIS
+       git status [&lt;options&gt;...] [--] [&lt;pathspec&gt;...]
+
+DESCRIPTION
+       Displays paths that have differences between the index file and the current HEAD commit,
+       paths that have differences between the working tree and the index file, and paths in the
+       working tree that are not tracked by Git (and are not ignored by gitignore(5)). The first
+       are what you would commit by running git commit; the second and third are what you could
+       commit by running git add before running git commit.</code></pre>
+<p>Just like any other help page that uses <code>less</code>, you can return to the prompt with the <code>Q</code> key.</p>
+<p>If you want to see a list of your Git commits, enter <code>git log</code> into the console:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> log</code></pre></div>
+<pre><code>## commit 12bb9f53b10c9b720dac8441e8624370e4e071b6
+## Author: seankross &lt;sean@seankross.com&gt;
+## Date:   Fri Apr 21 15:23:59 2017 -0400
+##
+##     added two files
+##
+## commit 73e53cae75301ce9b2802107b1956447241bb17a
+## Author: seankross &lt;sean@seankross.com&gt;
+## Date:   Thu Apr 20 14:15:26 2017 -0400
+##
+##     added readme.txt</code></pre>
+<p>If you’ve made many commits to a repository you might need to press the <code>Q</code> key in order to get back to the prompt. Each commit has its time, date, and commit message recorded, along with a SHA-1 hash that uniquely identifies the commit.</p>
+<p>Git can also help show the differences between unstaged changes to your files compared to the last commit. Let’s add a new line of text to <code>readme.txt</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">"The third line."</span> <span class="op">&gt;&gt;</span> readme.txt
+<span class="fu">git</span> diff readme.txt</code></pre></div>
+<pre><code>## diff --git a/readme.txt b/readme.txt
+## index b965f6a..a3db358 100644
+## --- a/readme.txt
+## +++ b/readme.txt
+## @@ -1,2 +1,3 @@
+##  Welcome to My First Repo
+##  Learning Git is going well so far.
+## +I added a line.</code></pre>
+<p>As you can see a plus sign shows up next to the added line. Now let’s open up this file in a text editor so we can delete the second line.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">nano</span> readme.txt
+<span class="co"># Delete the second line</span>
+<span class="fu">git</span> diff readme.txt</code></pre></div>
+<pre><code>## diff --git a/readme.txt b/readme.txt
+## index b965f6a..e173fdf 100644
+## --- a/readme.txt
+## +++ b/readme.txt
+## @@ -1,2 +1,2 @@
+##  Welcome to My First Repo
+## -Learning Git is going well so far.
+## +I added a line.</code></pre>
+<p>A minus sign appears next to the line we deleted. Let’s take a look at the status of our directory at this point.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Changes not staged for commit:
+##   (use "git add &lt;file&gt;..." to update what will be committed)
+##   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+##
+##  modified:   readme.txt
+##
+## no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+<p>If you read the results from <code>git status</code> carefully you can see that we can take this repository in one of two directions at this point. We can either <code>git add</code> the files we’ve made changes to in order to track those changes, or we can use <code>git checkout</code> in order to remove all of the changes we’ve made to a file to restore its content to what was present in the last commit. Let’s remove our changes to see how this works.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## I added a line.</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> checkout readme.txt
+<span class="fu">cat</span> readme.txt</code></pre></div>
+<pre><code>## Welcome to My First Repo
+## Learning Git is going well so far.</code></pre>
+<p>And as you can see the changes we made to <code>readme.txt</code> have been undone.</p>
+</div>
+<div id="ignoring-files" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Ignoring Files</h3>
+<p>Sometimes you might have files that you never want Git to track, for example binary files that are generated as by-products of running code (PDFs or images), or secrets like passwords or API keys. A file in your Git repository called <code>.gitignore</code> can list names of files and sub-folders, or simple regular expressions (whatever you can use with <code>ls</code>) in order to specify files which should never be tracked. Each line of a <code>.gitignore</code> file should specify a file or group of files that should not be tracked by Git. Let’s make a <code>.gitignore</code> file to make sure that we never track image files in this repository:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> toby.jpg
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Untracked files:
+##   (use "git add &lt;file&gt;..." to include in what will be committed)
+##
+##  toby.jpg
+##
+## nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+<p>Now that we’ve added an image to our repository, let’s add a <code>.gitignore</code> file to make sure Git doesn’t track these kinds of files.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">"*.jpg"</span> <span class="op">&gt;</span> .gitignore
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## Untracked files:
+##   (use "git add &lt;file&gt;..." to include in what will be committed)
+##
+##  .gitignore
+##
+## nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+<p>Now we can see that Git has detected the new <code>.gitignore</code> file, but it doesn’t see <code>toby.jpg</code>. Let’s add and commit our <code>.gitignore</code> file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> add -A
+<span class="fu">git</span> commit -m <span class="st">"added gitignore"</span></code></pre></div>
+<pre><code>## [master adef548] added gitignore
+##  1 file changed, 1 insertion(+)
+##  create mode 100644 .gitignore</code></pre>
+<p>Now if we add another <code>.jpg</code> file, Git will not see the file:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">touch</span> bernie.jpg
+<span class="fu">git</span> status</code></pre></div>
+<pre><code>## On branch master
+## nothing to commit, working tree clean</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span></code></pre></div>
+<pre><code>## bernie.jpg
+## toby.jpg
+## file1.txt
+## file2.txt
+## readme.txt</code></pre>
+</div>
+<div id="summary-21" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> Summary</h3>
+<ul>
+<li><code>git help</code> allows you to read the <code>man</code> pages for specific Git commands.</li>
+<li><code>git log</code> will show you your commit history.</li>
+<li><code>git diff</code> displays what has changed between the last commit and your current untracked changes.</li>
+<li>You can specify a <code>.gitignore</code> file in order to tell Git not to track certain files.</li>
+</ul>
+</div>
+<div id="exercises-18" class="section level3">
+<h3><span class="header-section-number">6.4.4</span> Exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Look at the help pages for <code>git log</code> and <code>git diff</code>.</li>
+<li>Add to the <code>.gitignore</code> you already started to include a specific file name, then add that file to your repository.</li>
+<li>Create a file that contains the Git log for this repository. Use <code>grep</code> to see which day of the week most of the commits occurred on.</li>
+</ol>
+</div>
+</div>
+<div class="slug" style="animation: none 0s ease 0s 1 normal none running; background: none; background-blend-mode: normal; border: none; border-radius: 0px; border-collapse: separate; bottom: auto; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; caption-side: top; clear: none; clip: auto; color: rgb(51, 51, 51); cursor: auto; direction: ltr; display: block; empty-cells: show; float: none; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-kerning: auto; font-size: 16px; font-stretch: 100%; font-style: normal; font-variant: normal; font-weight: 400; height: 8667px; image-rendering: auto; isolation: auto; place-items: normal; place-self: auto; left: auto; letter-spacing: 0.2px; line-height: 27.2px; list-style: disc outside none; margin: 0px; max-height: none; max-width: none; min-height: 0px; min-width: 0px; mix-blend-mode: normal; object-fit: fill; object-position: 50% 50%; offset: none 0px auto 0deg; opacity: 1; orphans: 2; outline: rgb(51, 51, 51) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: break-word; overflow: visible; padding: 0px; pointer-events: none; position: static; resize: none; right: auto; scroll-behavior: auto; speak: normal; table-layout: auto; tab-size: 8; text-align: start; text-align-last: auto; text-decoration: none solid rgb(51, 51, 51); text-decoration-skip-ink: auto; text-underline-position: auto; text-indent: 0px; text-rendering: optimizeLegibility; text-shadow: none; text-size-adjust: 100%; text-overflow: clip; text-transform: none; top: auto; touch-action: auto; transition: all 0s ease 0s; unicode-bidi: normal; vertical-align: baseline; visibility: visible; white-space: normal; widows: 2; width: 668px; will-change: auto; word-break: normal; word-spacing: 0px; word-wrap: break-word; z-index: auto; zoom: 1; -webkit-appearance: none; backface-visibility: visible; border-spacing: 0px; -webkit-border-image: none; -webkit-box-align: stretch; -webkit-box-decoration-break: slice; -webkit-box-direction: normal; -webkit-box-flex: 0; -webkit-box-flex-group: 1; -webkit-box-lines: single; -webkit-box-ordinal-group: 1; -webkit-box-orient: horizontal; -webkit-box-pack: start; columns: auto auto; column-gap: normal; column-rule: 0px none rgb(51, 51, 51); column-span: none; place-content: normal; flex: 0 1 auto; flex-flow: row nowrap; -webkit-font-smoothing: antialiased; grid-auto-columns: auto; grid-auto-flow: row; grid-auto-rows: auto; grid-area: auto / auto / auto / auto; grid-template-areas: none; grid-template-columns: none; grid-template-rows: none; grid-gap: 0px 0px; -webkit-highlight: none; hyphens: manual; -webkit-hyphenate-character: auto; -webkit-line-break: auto; -webkit-locale: auto; -webkit-margin-collapse: collapse collapse; -webkit-mask-box-image-source: none; -webkit-mask-box-image-slice: 0 fill; -webkit-mask-box-image-width: auto; -webkit-mask-box-image-outset: 0px; -webkit-mask-box-image-repeat: stretch; -webkit-mask: none 0% 0% / auto repeat border-box border-box; -webkit-mask-composite: source-over; order: 0; perspective: none; perspective-origin: 334px 4333.39px; -webkit-print-color-adjust: economy; -webkit-rtl-ordering: logical; shape-outside: none; shape-image-threshold: 0; shape-margin: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-combine: none; -webkit-text-decorations-in-effect: none; -webkit-text-emphasis: none rgb(51, 51, 51); -webkit-text-emphasis-position: over right; -webkit-text-fill-color: rgb(51, 51, 51); -webkit-text-orientation: vertical-right; -webkit-text-security: none; -webkit-text-stroke: 0px rgb(51, 51, 51); transform: none; transform-origin: 334px 4333.39px 0px; transform-style: flat; -webkit-user-drag: auto; -webkit-user-modify: read-only; user-select: auto; -webkit-writing-mode: horizontal-tb; -webkit-app-region: no-drag; buffered-rendering: auto; clip-path: none; clip-rule: nonzero; mask: none; filter: none; flood-color: rgb(0, 0, 0); flood-opacity: 1; lighting-color: rgb(255, 255, 255); stop-color: rgb(0, 0, 0); stop-opacity: 1; color-interpolation: sRGB; color-interpolation-filters: linearRGB; color-rendering: auto; fill: rgb(0, 0, 0); fill-opacity: 1; fill-rule: nonzero; marker: none; mask-type: luminance; shape-rendering: auto; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0px; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1; stroke-width: 1px; alignment-baseline: auto; baseline-shift: 0px; dominant-baseline: auto; text-anchor: start; writing-mode: horizontal-tb; vector-effect: none; paint-order: fill; d: none; cx: 0px; cy: 0px; x: 0px; y: 0px; r: 0px; rx: auto; ry: auto; caret-color: rgb(51, 51, 51); line-break: auto;"></div>
+<div class="slug" style="animation: none 0s ease 0s 1 normal none running; background: none; background-blend-mode: normal; border: none; border-radius: 0px; border-collapse: separate; bottom: auto; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; caption-side: top; clear: none; clip: auto; color: rgb(51, 51, 51); cursor: auto; direction: ltr; display: block; empty-cells: show; float: none; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-kerning: auto; font-size: 16px; font-stretch: 100%; font-style: normal; font-variant: normal; font-weight: 400; height: 17617px; image-rendering: auto; isolation: auto; place-items: normal; place-self: auto; left: auto; letter-spacing: 0.2px; line-height: 27.2px; list-style: disc outside none; margin: 0px; max-height: none; max-width: none; min-height: 0px; min-width: 0px; mix-blend-mode: normal; object-fit: fill; object-position: 50% 50%; offset: none 0px auto 0deg; opacity: 1; orphans: 2; outline: rgb(51, 51, 51) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: break-word; overflow: visible; padding: 0px; pointer-events: none; position: static; resize: none; right: auto; scroll-behavior: auto; speak: normal; table-layout: auto; tab-size: 8; text-align: start; text-align-last: auto; text-decoration: none solid rgb(51, 51, 51); text-decoration-skip-ink: auto; text-underline-position: auto; text-indent: 0px; text-rendering: optimizeLegibility; text-shadow: none; text-size-adjust: 100%; text-overflow: clip; text-transform: none; top: auto; touch-action: auto; transition: all 0s ease 0s; unicode-bidi: normal; vertical-align: baseline; visibility: visible; white-space: normal; widows: 2; width: 668px; will-change: auto; word-break: normal; word-spacing: 0px; word-wrap: break-word; z-index: auto; zoom: 1; -webkit-appearance: none; backface-visibility: visible; border-spacing: 0px; -webkit-border-image: none; -webkit-box-align: stretch; -webkit-box-decoration-break: slice; -webkit-box-direction: normal; -webkit-box-flex: 0; -webkit-box-flex-group: 1; -webkit-box-lines: single; -webkit-box-ordinal-group: 1; -webkit-box-orient: horizontal; -webkit-box-pack: start; columns: auto auto; column-gap: normal; column-rule: 0px none rgb(51, 51, 51); column-span: none; place-content: normal; flex: 0 1 auto; flex-flow: row nowrap; -webkit-font-smoothing: antialiased; grid-auto-columns: auto; grid-auto-flow: row; grid-auto-rows: auto; grid-area: auto / auto / auto / auto; grid-template-areas: none; grid-template-columns: none; grid-template-rows: none; grid-gap: 0px 0px; -webkit-highlight: none; hyphens: manual; -webkit-hyphenate-character: auto; -webkit-line-break: auto; -webkit-locale: auto; -webkit-margin-collapse: collapse collapse; -webkit-mask-box-image-source: none; -webkit-mask-box-image-slice: 0 fill; -webkit-mask-box-image-width: auto; -webkit-mask-box-image-outset: 0px; -webkit-mask-box-image-repeat: stretch; -webkit-mask: none 0% 0% / auto repeat border-box border-box; -webkit-mask-composite: source-over; order: 0; perspective: none; perspective-origin: 334px 8808.72px; -webkit-print-color-adjust: economy; -webkit-rtl-ordering: logical; shape-outside: none; shape-image-threshold: 0; shape-margin: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-combine: none; -webkit-text-decorations-in-effect: none; -webkit-text-emphasis: none rgb(51, 51, 51); -webkit-text-emphasis-position: over right; -webkit-text-fill-color: rgb(51, 51, 51); -webkit-text-orientation: vertical-right; -webkit-text-security: none; -webkit-text-stroke: 0px rgb(51, 51, 51); transform: none; transform-origin: 334px 8808.72px 0px; transform-style: flat; -webkit-user-drag: auto; -webkit-user-modify: read-only; user-select: auto; -webkit-writing-mode: horizontal-tb; -webkit-app-region: no-drag; buffered-rendering: auto; clip-path: none; clip-rule: nonzero; mask: none; filter: none; flood-color: rgb(0, 0, 0); flood-opacity: 1; lighting-color: rgb(255, 255, 255); stop-color: rgb(0, 0, 0); stop-opacity: 1; color-interpolation: sRGB; color-interpolation-filters: linearRGB; color-rendering: auto; fill: rgb(0, 0, 0); fill-opacity: 1; fill-rule: nonzero; marker: none; mask-type: luminance; shape-rendering: auto; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0px; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1; stroke-width: 1px; alignment-baseline: auto; baseline-shift: 0px; dominant-baseline: auto; text-anchor: start; writing-mode: horizontal-tb; vector-effect: none; paint-order: fill; d: none; cx: 0px; cy: 0px; x: 0px; y: 0px; r: 0px; rx: auto; ry: auto; caret-color: rgb(51, 51, 51); line-break: auto;"></div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<div class="slug" style="animation: none 0s ease 0s 1 normal none running; background: none; background-blend-mode: normal; border: none; border-radius: 0px; border-collapse: separate; bottom: 0px; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; caption-side: top; clear: none; clip: auto; color: rgb(204, 204, 204); cursor: pointer; direction: ltr; display: block; empty-cells: show; float: left; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-kerning: auto; font-size: 40px; font-stretch: 100%; font-style: normal; font-variant: normal; font-weight: 400; height: 48px; image-rendering: auto; isolation: auto; place-items: normal; place-self: auto; left: 0px; letter-spacing: 0.2px; line-height: normal; list-style: disc outside none; margin: 0px; max-height: none; max-width: 50%; min-height: 0px; min-width: 90px; mix-blend-mode: normal; object-fit: fill; object-position: 50% 50%; offset: none 0px auto 0deg; opacity: 1; orphans: 2; outline: rgb(204, 204, 204) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: normal; overflow: visible; padding: 0px; pointer-events: none; position: static; resize: none; right: auto; scroll-behavior: auto; speak: normal; table-layout: auto; tab-size: 8; text-align: center; text-align-last: auto; text-decoration: none solid rgb(204, 204, 204); text-decoration-skip-ink: auto; text-underline-position: auto; text-indent: 0px; text-rendering: optimizeLegibility; text-shadow: none; text-size-adjust: 100%; text-overflow: clip; text-transform: none; top: auto; touch-action: auto; transition: all 0.35s ease 0s; unicode-bidi: normal; vertical-align: baseline; visibility: visible; white-space: normal; widows: 2; width: 349px; will-change: auto; word-break: normal; word-spacing: 0px; word-wrap: normal; z-index: auto; zoom: 1; -webkit-appearance: none; backface-visibility: visible; border-spacing: 0px; -webkit-border-image: none; -webkit-box-align: stretch; -webkit-box-decoration-break: slice; -webkit-box-direction: normal; -webkit-box-flex: 0; -webkit-box-flex-group: 1; -webkit-box-lines: single; -webkit-box-ordinal-group: 1; -webkit-box-orient: horizontal; -webkit-box-pack: start; columns: auto auto; column-gap: normal; column-rule: 0px none rgb(204, 204, 204); column-span: none; place-content: center; flex: 0 1 auto; flex-flow: column nowrap; -webkit-font-smoothing: antialiased; grid-auto-columns: auto; grid-auto-flow: row; grid-auto-rows: auto; grid-area: auto / auto / auto / auto; grid-template-areas: none; grid-template-columns: none; grid-template-rows: none; grid-gap: 0px 0px; -webkit-highlight: none; hyphens: manual; -webkit-hyphenate-character: auto; -webkit-line-break: auto; -webkit-locale: auto; -webkit-margin-collapse: collapse collapse; -webkit-mask-box-image-source: none; -webkit-mask-box-image-slice: 0 fill; -webkit-mask-box-image-width: auto; -webkit-mask-box-image-outset: 0px; -webkit-mask-box-image-repeat: stretch; -webkit-mask: none 0% 0% / auto repeat border-box border-box; -webkit-mask-composite: source-over; order: 0; perspective: none; perspective-origin: 174.5px 24px; -webkit-print-color-adjust: economy; -webkit-rtl-ordering: logical; shape-outside: none; shape-image-threshold: 0; shape-margin: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-combine: none; -webkit-text-decorations-in-effect: none; -webkit-text-emphasis: none rgb(204, 204, 204); -webkit-text-emphasis-position: over right; -webkit-text-fill-color: rgb(204, 204, 204); -webkit-text-orientation: vertical-right; -webkit-text-security: none; -webkit-text-stroke: 0px rgb(204, 204, 204); transform: none; transform-origin: 174.5px 24px 0px; transform-style: flat; -webkit-user-drag: auto; -webkit-user-modify: read-only; user-select: auto; -webkit-writing-mode: horizontal-tb; -webkit-app-region: no-drag; buffered-rendering: auto; clip-path: none; clip-rule: nonzero; mask: none; filter: none; flood-color: rgb(0, 0, 0); flood-opacity: 1; lighting-color: rgb(255, 255, 255); stop-color: rgb(0, 0, 0); stop-opacity: 1; color-interpolation: sRGB; color-interpolation-filters: linearRGB; color-rendering: auto; fill: rgb(0, 0, 0); fill-opacity: 1; fill-rule: nonzero; marker: none; mask-type: luminance; shape-rendering: auto; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0px; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1; stroke-width: 1px; alignment-baseline: auto; baseline-shift: 0px; dominant-baseline: auto; text-anchor: start; writing-mode: horizontal-tb; vector-effect: none; paint-order: fill; d: none; cx: 0px; cy: 0px; x: 0px; y: 0px; r: 0px; rx: auto; ry: auto; caret-color: rgb(204, 204, 204); line-break: auto;"></div>
+<div class="slug" style="animation: none 0s ease 0s 1 normal none running; background: none; background-blend-mode: normal; border: none; border-radius: 0px; border-collapse: separate; bottom: 0px; box-shadow: none; box-sizing: border-box; break-after: auto; break-before: auto; break-inside: auto; caption-side: top; clear: none; clip: auto; color: rgb(204, 204, 204); cursor: pointer; direction: ltr; display: block; empty-cells: show; float: left; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-kerning: auto; font-size: 40px; font-stretch: 100%; font-style: normal; font-variant: normal; font-weight: 400; height: 48px; image-rendering: auto; isolation: auto; place-items: normal; place-self: auto; left: auto; letter-spacing: 0.2px; line-height: normal; list-style: disc outside none; margin: 0px; max-height: none; max-width: 50%; min-height: 0px; min-width: 90px; mix-blend-mode: normal; object-fit: fill; object-position: 50% 50%; offset: none 0px auto 0deg; opacity: 1; orphans: 2; outline: rgb(204, 204, 204) none 0px; outline-offset: 0px; overflow-anchor: auto; overflow-wrap: normal; overflow: visible; padding: 0px; pointer-events: none; position: static; resize: none; right: 0px; scroll-behavior: auto; speak: normal; table-layout: auto; tab-size: 8; text-align: center; text-align-last: auto; text-decoration: none solid rgb(204, 204, 204); text-decoration-skip-ink: auto; text-underline-position: auto; text-indent: 0px; text-rendering: optimizeLegibility; text-shadow: none; text-size-adjust: 100%; text-overflow: clip; text-transform: none; top: auto; touch-action: auto; transition: all 0.35s ease 0s; unicode-bidi: normal; vertical-align: baseline; visibility: visible; white-space: normal; widows: 2; width: 349px; will-change: auto; word-break: normal; word-spacing: 0px; word-wrap: normal; z-index: auto; zoom: 1; -webkit-appearance: none; backface-visibility: visible; border-spacing: 0px; -webkit-border-image: none; -webkit-box-align: stretch; -webkit-box-decoration-break: slice; -webkit-box-direction: normal; -webkit-box-flex: 0; -webkit-box-flex-group: 1; -webkit-box-lines: single; -webkit-box-ordinal-group: 1; -webkit-box-orient: horizontal; -webkit-box-pack: start; columns: auto auto; column-gap: normal; column-rule: 0px none rgb(204, 204, 204); column-span: none; place-content: center; flex: 0 1 auto; flex-flow: column nowrap; -webkit-font-smoothing: antialiased; grid-auto-columns: auto; grid-auto-flow: row; grid-auto-rows: auto; grid-area: auto / auto / auto / auto; grid-template-areas: none; grid-template-columns: none; grid-template-rows: none; grid-gap: 0px 0px; -webkit-highlight: none; hyphens: manual; -webkit-hyphenate-character: auto; -webkit-line-break: auto; -webkit-locale: auto; -webkit-margin-collapse: collapse collapse; -webkit-mask-box-image-source: none; -webkit-mask-box-image-slice: 0 fill; -webkit-mask-box-image-width: auto; -webkit-mask-box-image-outset: 0px; -webkit-mask-box-image-repeat: stretch; -webkit-mask: none 0% 0% / auto repeat border-box border-box; -webkit-mask-composite: source-over; order: 0; perspective: none; perspective-origin: 174.5px 24px; -webkit-print-color-adjust: economy; -webkit-rtl-ordering: logical; shape-outside: none; shape-image-threshold: 0; shape-margin: 0px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-text-combine: none; -webkit-text-decorations-in-effect: none; -webkit-text-emphasis: none rgb(204, 204, 204); -webkit-text-emphasis-position: over right; -webkit-text-fill-color: rgb(204, 204, 204); -webkit-text-orientation: vertical-right; -webkit-text-security: none; -webkit-text-stroke: 0px rgb(204, 204, 204); transform: none; transform-origin: 174.5px 24px 0px; transform-style: flat; -webkit-user-drag: auto; -webkit-user-modify: read-only; user-select: auto; -webkit-writing-mode: horizontal-tb; -webkit-app-region: no-drag; buffered-rendering: auto; clip-path: none; clip-rule: nonzero; mask: none; filter: none; flood-color: rgb(0, 0, 0); flood-opacity: 1; lighting-color: rgb(255, 255, 255); stop-color: rgb(0, 0, 0); stop-opacity: 1; color-interpolation: sRGB; color-interpolation-filters: linearRGB; color-rendering: auto; fill: rgb(0, 0, 0); fill-opacity: 1; fill-rule: nonzero; marker: none; mask-type: luminance; shape-rendering: auto; stroke: none; stroke-dasharray: none; stroke-dashoffset: 0px; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-opacity: 1; stroke-width: 1px; alignment-baseline: auto; baseline-shift: 0px; dominant-baseline: auto; text-anchor: start; writing-mode: horizontal-tb; vector-effect: none; paint-order: fill; d: none; cx: 0px; cy: 0px; x: 0px; y: 0px; r: 0px; rx: auto; ry: auto; caret-color: rgb(204, 204, 204); line-break: auto;"></div>
+    </div>
+  </div>
+<script src="./The Unix Workbench_files/app.min.js"></script>
+<script src="./The Unix Workbench_files/lunr.js"></script>
+<script src="./The Unix Workbench_files/plugin-search.js"></script>
+<script src="./The Unix Workbench_files/plugin-sharing.js"></script>
+<script src="./The Unix Workbench_files/plugin-fontsettings.js"></script>
+<script src="./The Unix Workbench_files/plugin-bookdown.js"></script>
+<script src="./The Unix Workbench_files/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+
+
+
+</body></html>
