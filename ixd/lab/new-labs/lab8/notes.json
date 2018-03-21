@@ -1,0 +1,290 @@
+[
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "type":"debug",
+      "title":"How will this lab help me?",
+      "list":[{
+        "problem":"This lab will teach you how to use the Facebook login, Google Maps API, and camera through getUserMedia.",
+        "fix":"The core lesson here is that there are third party APIs that we can utilize and avoid doing work that's already been done. You'll also get more practice using callbacks as the main form of communication between client and server. Even if you're not using any of these features in your assignments, hopefully this will get you started on using creating richer web applications."
+      }]
+    }
+  ],
+  [],
+  [
+    {
+      "type":"debug",
+      "title":"Heads up!",
+      "list":[{
+        "problem":"This isn't the only form callbacks take, or are used, but is an example! We'll see various forms of callbacks in the rest of the lab.",
+        "fix":""
+      }]
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "type":"links",
+      "comment":"Starter code github link",
+      "list":["<a href='https://github.com/DesignAtLarge/lab8/fork' target=\"_blank\">https://github.com/DesignAtLarge/lab8/fork</a>"]
+    },
+    {
+      "type":"debug",
+      "list":[{
+        "problem":"Wait.. <code>node</code> just barfed... what do I do?",
+        "fix":"Try restarting your computer"}]
+    }
+  ],
+  [],
+  [
+    {
+      "type":"links",
+      "comment":"Get application key",
+      "list":["<a href='https://developers.facebook.com/apps' target=\"_blank\">https://developers.facebook.com/apps</a>"]
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "comment": "Include facebook partials + add login button",
+      "type": "code",
+      "title": "Include the partials",
+      "text": "{{&gt; facebook}}\n&lt;script src=\"/js/facebook.js\"&gt;&lt;/script&gt;"
+    },
+    {
+      "type": "code",
+      "title": "Add login button",
+      "text": "&lt;fb:login-button scope=\"public_profile,email\" onlogin=\"checkLoginState();\"&gt;\n&lt;/fb:login-button&gt;"
+    }
+  ],
+  [
+    {
+      "comment": "The facebook.js",
+      "type": "code",
+      "title": "facebook.js",
+      "text": "function checkLoginState() {\n  FB.getLoginStatus(function(response) {\n    statusChangeCallback(response);\n  });\n}\n\nfunction statusChangeCallback(response) {\n  console.log('Facebook login status changed.');\n  console.log(response);\n  // The response object is returned with a status field that lets the\n  // app know the current login status of the person.\n  // Full docs on the response object can be found in the documentation\n  // for FB.getLoginStatus().\n  if (response.status === 'connected') {\n    // Logged into your app and Facebook.\n        console.log('Successfully logged in with Facebook');\n         FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);\n  }\n}"
+    },
+    {
+      "type":"debug",
+      "title":"Heads up!",
+      "list":[{
+        "problem":"Wait how does <code>checkLoginState()</code> get called?",
+        "fix":"If you look in your <code>index.handlebars</code>, we put in the segment <code>onlogin=\"checkLoginState();\"</code>. This means after Facebook is done accepting your login API request, it will call the callback <code>checkLoginState</code> for you. See how varied callbacks can be used!"
+      }]
+    },
+    {
+      "type":"debug",
+      "list":[{
+        "problem":"It's not working!?",
+        "fix":"Check your javascript console in developer tools"
+      }]
+    }
+
+  ],
+  [
+    {
+      "type":"debug",
+      "title":"Hints",
+      "list":[{
+        "problem":"How do I get the name from facebook to replace Michael Bernstein?",
+        "fix":"Remember that the response data from facebook is stored in the <code>response</code> variable in <code>changeUser</code>. What's in <code>response</code>? Try printing it out onto the console!"
+      },
+      {
+        "problem":"How do I get the image from facebook to use in my <code>img</code>?",
+        "fix":"This is going to be similar to how we did it for name. Try peeking into what's inside <code>response</code> by logging it on the console. Try and see if you can get the URL to your facebook image to print onto the console."
+      },
+      {
+        "problem":"How do I replace just the <code>src</code> attribute of <code>img</code>?",
+        "fix":"You can change a single attribute of an element with the jQuery call <code>$.attr('src', <Some new URL>);</code>. Read more about it in the <a href='http://api.jquery.com/attr/#attr2'>jQuery docs!</a>"
+      }]
+    }
+  ],
+  [],
+  [
+    {
+      "type":"links",
+      "comment":"Get application key",
+      "list":["<a href='https://developers.google.com/maps/documentation/javascript/' target=\"_blank\">https://developers.google.com/maps/documentation/javascript/</a>"]
+    }
+  ],
+  [
+    {
+      "type":"debug",
+      "title":"Forgot your API key?",
+      "list":[{
+        "problem":"You can find your API key again by clicking 'Get a Key' again (same button as before) and selecting your app name from the dropdown, and clicking 'Enable Api'",
+        "fix":""
+      }]
+    }
+  ],
+  [],
+  [
+    {
+      "comment": "Include googleMaps partials",
+      "type": "code",
+      "title": "Terminal",
+      "text": "&lt;script src=\"/js/googleMaps.js\"&gt;&lt;/script&gt;\n{{&gt; googleMaps}}\n"
+    }
+  ],
+  [
+    {
+      "comment": "The googleMaps.js",
+      "type": "code",
+      "title": "googleMaps.js",
+      "text": "function initMap() {\n  // Create center marker at UCSD\n  var ucsd_ltlng = {lat:32.880, lng:-117.236};\n\n  // Create a map object and specify the DOM element for display.\n  var map = new google.maps.Map(document.getElementById('map'), {\n    center: ucsd_ltlng,\n    zoom: 15\n  });\n\n  var marker = new google.maps.Marker({\n      position: ucsd_ltlng,\n      map: map,\n      title: 'UCSD'\n  });\n}"
+    },
+    {
+      "type":"debug",
+      "title":"Heads up!",
+      "list":[{
+        "problem":"Wait, how does <code>initMap()</code> get called?",
+        "fix":"If you look in your <code>googleMaps.handlebars</code>, we put in the segment <code>&callback=initMap</code>. This means after Google Maps is done accepting your API request, it will call the callback <code>initMap</code> for you. Another example of the varied usage of callbacks!"
+      }]
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "type":"debug",
+      "title":"Hints",
+      "list":[{
+        "problem":"What exactly are we implementing here?",
+        "fix":"The video tag will show the video feed from our webcam. The canvas will show the image once we've taken the shot. Finally, the button will actually take the image!"
+      },
+      {
+        "problem":"Whoa whoa slow down. How does all this work?",
+        "fix":"Well it's slightly outside of the scope of this class, but you can read the <code>capture</code> function to understand how the video, canvas, and button are hooked together. The <code>successCallback</code> hooks up the <code>video</code> element to show the stream, and <code>button</code>'s click to an event that draws the current image in <code>video</code> to the <code>canvas</code>. You can also see <a href='https://dev.opera.com/articles/media-capture-in-mobile-browsers/'>Dev.Opera - Media Capture in Mobile Browsers</a> for a more detailed explanation."
+      }]
+    }
+  ],
+  [
+    {
+      "comment": "Include <code>camera.js</code>",
+      "type": "code",
+      "title": "index.handlebars",
+      "text": "&lt;script src=\"/js/camera.js\"&gt;&lt;/script&gt;"
+    },
+    {
+      "comment":"Make sure to uncomment",
+      "type":"debug",
+      "title":"I got an error in my browser console",
+      "list":[{
+        "problem":"Make sure to uncomment the camera code in your index.handlebars",
+        "fix":""
+      }]
+    }
+  ],
+  [
+    {
+      "type":"debug",
+      "title":"Heads up!",
+      "list":[{
+        "problem":"Make sure to use https",
+        "fix":"Make sure to go to https://&lt;Your Heroku App Name&gt;.herokuapp.com as these 3rd party APIs will not work without it!"
+      }]
+    },
+    {
+      "type":"code",
+      "title":"GitHub - Commit",
+      "text":"git status\ngit add ... \ngit commit -m \"Third party APIs\""
+    },
+    {
+      "type":"code",
+      "title":"Github - Push",
+      "text":"git push"
+    }
+  ],
+  [
+    {
+      "type":"links",
+      "list":["<a target='_blank' href='#slide-15'>Slide 15-Set Facebook API URL</a>"]
+    }
+  ],
+  [],
+  [],
+  [],
+  [
+    {
+      "type":"code",
+      "title":"routes/tasks.js",
+      "text":"exports.addTask = function(req, res){\nvar taskName = req.body.taskName;\n  // This will print in your terminal when a POST is made\n  console.log(taskName); \n\n  data.tasks.push(taskName); // Add to current data\n\n  // Lets send our task name back so our browser knows it worked out!\n  res.send(taskName);\n}"
+    },
+    {
+      "type":"code",
+      "title":"Add to app.js",
+      "text":"app.post('/addTask', tasks.addTask);"
+    }
+  ],
+  [
+    {
+      "type":"code",
+      "title":"views/tasks.handlebars",
+      "text":"&lt;form id='taskForm' action='/addTask' method='post'&gt;\n        &lt;label for='addTask'&gt;Add a task&lt;/label&gt;\n        &lt;input id='addTask' name='taskName' placeholder='New Task' /&gt;\n        &lt;button type='submit' class='btn btn-primary'&gt;Submit&lt;/button&gt;\n&lt;/form&gt;"
+    }
+  ],
+  [
+    {
+      "type":"code",
+      "title":"public/js/tasks.js",
+      "text":"// Your code goes here\n$(document).ready(function() {\n$('#taskForm').submit(function(e) {\n    // Prevents default submit + reload (we only want the submit part)\n    e.preventDefault();\n\n    var taskName = $('#addTask').val();\n\n    // Send the POST request\n    $.post('addTask', { taskName: taskName }, postCallback);\n  });\n});\n\nfunction postCallback(res) {\n  $('.taskList').append('&lt;li&gt;' + res + '&lt;/li&gt;'); // Add to the list\n\n $('#addTask').val(''); // Clear form\n}"
+    }
+  ],
+  [],
+  [],
+  [],
+  [
+    {
+      "type":"code",
+      "title":"Code",
+      "text":"&lt;ul class='nav nav-pills nav-justified'&gt\n&lt!-- href='#idName' scrolls to the div with the id idName --&gt;\n&lt;li&gt;&lt;a href='/#'&gt;Home&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href='tasks'&gt;Tasks&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href='/#facebookPhoto'&gt;Facebook&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href='/#camera'&gt;Camera&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href='/#googleMaps'&gt;Google Maps&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;" 
+    }
+  ],
+  [],
+  [],
+  [],
+  [
+    {
+      "type":"debug",
+      "title":"Heads up!",
+      "list":[{
+        "problem":"Make sure to use https",
+        "fix":"Make sure to go to https://&lt;Your Heroku App Name&gt;.herokuapp.com as these 3rd party APIs will not work without it!"
+      }]
+    },
+    {
+      "type":"code",
+      "title":"GitHub - Commit",
+      "text":"git status\ngit add ... \ngit commit -m \"added partials\""
+    },
+    {
+      "type":"code",
+      "title":"Github - Push",
+      "text":"git push"
+    }
+  ],
+  [
+    {
+      "type":"debug",
+      "title":"Stretch Goals",
+      "comment":"Stretch Goals",
+      "list":[{
+        "problem":"Four stretch goals this time. Pick at least one!",
+        "fix":"<ol><li>Incorporate your fb friends list into the website.</li><li>Add a new marker to Maps on click</li><li>When you take a photo with the camera, have it update your profile photo on the website.</li><li>Add delete task functionality!</li></ol>"
+      }]
+    },
+    {
+      "type":"links",
+      "title":"Find more third party APIs at our development resources!",
+      "list":["<a target='_blank' href='http://d.ucsd.edu/class/intro-hci/2016/mobile_app_tips.php'>Development Resources</a>"]
+    }
+  ]
+]

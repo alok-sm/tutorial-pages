@@ -1,0 +1,166 @@
+[
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [{
+            "type": "video",
+            "src": "video/js-click.mov"
+        },
+        {
+            "type": "footnote",
+            "text": "<a class='jsbin-embed' href='http://jsbin.com/rezeni/1/embed?html,js,output'>JS Bin</a><script src='http://static.jsbin.com/js/embed.js'></script>"
+        }
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [{
+        "type": "footnote",
+        "text": "<a class='jsbin-embed' style='height: 500px' href='http://jsbin.com/seqogu/1/embed?html,js,output'>JS Bin</a><script src='http://static.jsbin.com/js/embed.js'></script>"
+    }],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [{
+            "title": "Facebook Like",
+            "type": "video",
+            "src": "video/css-like.mov"
+        },
+        {
+            "title": "Class Homepage Highlight",
+            "type": "video",
+            "src": "video/css-nav.mov"
+        },
+        {
+            "title": "Reddit Highlight",
+            "type": "video",
+            "src": "video/css-reddit.mov"
+        }
+    ],
+    [{
+        "type": "footnote",
+        "text": "<a class='jsbin-embed' style='height: 400px' href='http://jsbin.com/qiruyu/1/embed?html,js,output'>JS Bin</a><script src='http://static.jsbin.com/js/embed.js'></script>"
+    }],
+    [],
+    [{
+        "type": "footnote",
+        "text": "<a class='jsbin-embed' style='height: 400px' href='http://jsbin.com/miyice/2/embed?html,js,output'>JS Bin</a><script src='http://static.jsbin.com/js/embed.js'></script>"
+    }],
+    [{
+        "type": "video",
+        "src": "video/css-animate.mov",
+        "comment": "Read from a form"
+    }],
+    [],
+    [{
+        "comment": "github fork lab3 link",
+        "type": "links",
+        "title": "Github Link",
+        "list": ["<a href='https://github.com/DesignAtLarge/lab3'>https://github.com/DesignAtLarge/lab3</a>"]
+    }],
+    [],
+    [{
+        "comment": "Is the Javascript connected correctly?",
+        "type": "video",
+        "src": "video/js-test.mov"
+    }],
+    [],
+    [{
+            "comment": "Append to an element",
+            "type": "code",
+            "text": "...\n    var containingProject = $(this).closest(\".project\");\n    containingProject.append(\"&lt;div class='project-description'&gt;&lt;p&gt;Description of the project.&lt;/p&gt;&lt;/div&gt;\");\n}"
+        },
+        {
+            "type": "links",
+            "title": "Hints",
+            "list": ["<a href='http://ixd.ucsd.edu/home/w17/lab/lab2'> No idea how to define 'projectClick' function? Check slide 59 of lab2 </a>", "If the text vanishes immediately after appearing, make sure you have included ALL of the javascript lines from slide 59."]
+        }
+    ],
+    [{
+        "type": "video",
+        "src": "video/content-append.mov"
+    }],
+    [{
+        "comment": "Replace instead of append",
+        "type": "code",
+        "text": "...\n    var containingProject = $(this).closest(\".project\");\n    var description = $(containingProject).find(\".project-description\");\n    if (description.length == 0) {\n       $(containingProject).append(\"&lt;div class='project-description'&gt;&lt;p&gt;Description of the project.&lt;/p&gt;&lt;/div&gt;\");\n    } else {\n       description.html(\"&lt;p&gt;Stop clicking on me! You just did it at \" + (new Date()) + \"&lt;/p&gt;\");\n    }\n}"
+    }],
+    [{
+        "type": "debug",
+        "list": [{
+                "problem": "Wait, what am I doing on this slide?",
+                "fix": "The big blue button that says \"Test Javascript\".  See it?  When you click it, it's text should change to something else."
+            },
+            {
+                "problem": "What should I change the text to?",
+                "fix": "Experience Chan! It's not a lot of questions.<br>Too many questions is the Chan disease.<br>The best way is just to observe the noise of the world.<br>The answer to your questions?<br>Ask your own heart."
+            }
+        ]
+    }],
+    [{
+        "type": "code",
+        "text": "$(\"#testjs\").text(\"Please wait...\");"
+    }],
+    [{
+        "type": "code",
+        "text": "$(\".jumbotron p\").addClass(\"active\");"
+    }],
+    [{
+            "type": "video",
+            "src": "video/js-addclass.mov"
+        },
+        {
+            "comment": "Nothing happens. Why?",
+            "type": "code",
+            "text": ".jumbotron p.active {\n     color: #1f6ddd;\n}"
+        }
+    ],
+    [],
+    [{
+        "type": "links",
+        "title": "Hints",
+        "list": ["Check the <a href='https://api.jquery.com/category/effects/basics/'>jQuery Basic effects</a> documentation",
+            "Check the <a href='https://api.jquery.com/category/effects/fading/'>jQuery Fading effects</a> documentation"
+        ]
+    }],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+]

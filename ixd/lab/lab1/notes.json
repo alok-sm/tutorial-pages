@@ -1,0 +1,215 @@
+[
+  [{"type":"comment", "slidenum":"1"}],
+  [{"type":"comment", "slidenum":"2"},
+    {
+      "type": "links",
+      "title": "Get accounts and install software",
+      "list": [
+        "<a href='http://git-scm.com/downloads'>Install Git</a> <ul><li>WARNING: If you're using Windows, make sure you install git. Installing <em>GitHub</em> is not enough, as we need Git Bash.</li></ul>",
+        "<a href='http://github.com'>Get a GitHub account</a>",
+        "<a href='http://www.sublimetext.com/'>Install the Sublime Text text editor</a> <ul><li>If you want to use a different editor, we won't stop you, but we also won't be able to support with editor related questions.</li></ul>"
+      ]
+    },
+    {
+      "type": "debug",
+      "list": [{
+        "problem":"<pre><code>[appname] can't be opened becuase it is from an unidentified developer.</code></pre>",
+        "fix":"Control-click on the file and choose 'Open', and you'll get an additional 'Open' option when the window pops up."
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"3"}],
+  [{"type":"comment", "slidenum":"4"},
+    {
+      "comment": "submit link",
+      "type": "links",
+      "list": ["<a href='http://tinyurl.com/w18ixd-lab1'>Lab 1 Submission link</a>"]
+    }
+  ],
+  [{"type":"comment", "slidenum":"5"}],
+  [{"type":"comment", "slidenum":"6"}],
+  [{"type":"comment", "slidenum":"7"}],
+  [{"type":"comment", "slidenum":"8"}],
+  [{"type":"comment", "slidenum":"9"}],
+  [{"type":"comment", "slidenum":"10"}],
+  [{"type":"comment", "slidenum":"11"}],
+  [{"type":"comment", "slidenum":"12"}],
+  [{"type":"comment", "slidenum":"13"},
+    {
+      "comment": "fork your first github repo",
+      "type": "links",
+      "list": ["<a href='https://github.com/IntroHCI/lab1'>https://github.com/IntroHCI/lab1</a>"]
+    },
+    {
+      "type": "video",
+      "src": "video/git-fork.mov"
+    },
+    {
+      "type": "debug",
+      "list": [{
+        "problem":"The video's not playing",
+        "fix":"Make sure you're in Google Chrome or Safari. IE and Firefox don't support HTML5 video with .mov files."
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"14"},
+    {
+      "comment": "copy the git clone url",
+      "type": "video",
+      "src": "video/git-clone.mov"
+    }
+  ],
+  [{"type":"comment", "slidenum":"15"},
+    {
+      "comment": "open your terminal",
+      "type": "video",
+      "src": "video/cd.mov"
+    },
+    {
+      "type": "code",
+      "text": "➜  Desktop  cd ~/Documents/introHCI \n➜  introHCI  ls\nLICENSE            Vagrantfile\nintroHCI-extras.sh README.md\ncookbooks          lab1\n➜  introHCI"
+    }
+  ],
+  [{"type":"comment", "slidenum":"16"},
+    {
+      "type": "debug",
+      "title": "Hints",
+      "list": [{
+        "problem": "What is <code>~/</code>?",
+        "fix": "In Unix, <code>~/</code> is your home directory."
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"17"},
+    {
+      "comment": "git clone the repo inside of introHCI",
+      "type": "video",
+      "src": "video/git-clone-2.mov"
+    },
+    {
+      "type": "code",
+      "text": "➜  Desktop  cd ~/Documents/introHCI\n➜  introHCI ✗ git clone https://github.com/yourgithubusername/lab1.git\nCloning into 'lab1'...\nremote: Counting objects: 537, done.\nremote: Compressing objects: 100% (408/408), done.\nremote: Total 537 (delta 92), reused 537 (delta 92)\nReceiving objects: 100% (537/537), 3.66 MiB | 1.76 MiB/s, done.\nResolving deltas: 100% (92/92), done.\nChecking connectivity... done\n➜  introHCI git:(master) ✗"
+    },
+    {
+      "type": "debug",
+      "list": [{
+        "problem":"OS X: <pre><code>xcode-select: note: no developer tools were found at '/Applications/XCode.app', requesting install. Choose an option in the dialog to download the command line developer tools.</code></pre> ",
+        "fix":"Then a popup asks you to choose 'get Xcode', 'Not Now', or 'Install'.  Choose 'Install'.  Once the install is done, try again."
+      },
+      {
+        "problem":"OS X: <pre><code>Agreeing to the XCode/iOS license requires admin priveleges, please re-run as root via sudo.</code></pre>",
+        "fix":"As it suggests, add sudo to the front: <pre><code>sudo git clone https://github.com/yourgithubusername/lab1.git</code></pre> Scroll through the license, and agree at the bottom. Another path would be to open Xcode and agree to the license there."
+      },
+      {
+        "problem":"Windows: how do I paste into Git Bash?",
+        "fix":"Click on the terminal icon in the upper left of the window: Edit, Paste. For a shortcut: Alt-spacebar, then e, then p.\nIf that seems needlessly complicated, you can also enable QuickEdit mode by clicking on the terminal icon in the upper left of the window: Defaults(or Properties). Go to the Options tab and enable \"QuickEdit Mode\". Now you may paste by right-clicking in the terminal."
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"18"}],
+  [{"type":"comment", "slidenum":"19"}],
+  [{"type":"comment", "slidenum":"20"},
+    {
+      "comment": "add your info into [file]",
+      "type": "video",
+      "src": "video/git-edit.mov"
+    },
+    {
+      "type": "code",
+      "text": "&lt;!doctype html&gt;\n\n&lt;html&gt;\n&lt;head&gt;\n  &lt;meta charset=\"utf-8\"&gt;\n  &lt;title&gt;HCI Project Portfolio&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n  &lt;!-- this is a comment in HTML --&gt;\n  &lt;h1&gt;Scott Klemmer&lt;/h1&gt; &lt;!-- h1 through h5 are headers. The higher the number, the smaller the header --&gt;\n  &lt;h4&gt;Project Portfolio&lt;/h4&gt;\n\n  &lt;!-- p means paragraph --&gt;\n  &lt;p&gt;Scott Klemmer is an associate professor of Cognitive Science and Computer Science &amp; Engineering at UC San Diego.&lt;/p&gt;\n\n  &lt;h4&gt;Projects&lt;/h4&gt;\n  &lt;ol&gt;\n    &lt;li&gt;Waiting in line&lt;/li&gt;\n    &lt;li&gt;Needfinding&lt;/li&gt;\n    &lt;li&gt;Prototyping&lt;/li&gt;\n    &lt;li&gt;...&lt;/li&gt;\n  &lt;/ol&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    }
+  ],
+  [{"type":"comment", "slidenum":"21"}],
+  [{"type":"comment", "slidenum":"22"}],
+  [{"type":"comment", "slidenum":"23"},
+    {
+      "comment": "set up git so we can commit",
+      "type": "code",
+      "text": "# No response means it succeeded. \ngit config --global user.name \"Your Name\"\ngit config --global user.email \"youremail@university.edu\"\ngit config --global push.default simple"
+    },
+    {
+      "comment": "set up git so we can commit",
+      "type": "video",
+      "src": "video/git-config.mov"
+    }    
+  ],
+  [{"type":"comment", "slidenum":"24"}],
+  [{"type":"comment", "slidenum":"25"},
+    {
+      "comment": "git status and git add",
+      "type": "video",
+      "src": "video/git-add.mov"
+    },
+    {
+      "type": "code",
+      "text": "➜  lab1 git:(master) ✗ git status\n# On branch master\n# Changes not staged for commit:\n#   (use \"git add <file>...\" to update what will be committed)\n#   (use \"git checkout -- <file>...\" to discard changes in working directory)\n#\n#    modified:   static/index.html\n#\nno changes added to commit (use \"git add\" and/or \"git commit -a\")\n➜  lab1 git:(master) ✗ git add static/index.html \n➜  lab1 git:(master) ✗ git status\n# On branch master\n# Changes to be committed:\n#   (use \"git reset HEAD <file>...\" to unstage)\n#\n# modified:   static/index.html\n#\n➜  lab1 git:(master) ✗"
+    },
+    {
+      "type": "debug",
+      "list": [{
+        "problem":"<pre><code>fatal: Not a git repository (or any of the parent directories)</code></pre>",
+        "fix":"Make sure that you're in the lab1 directory --- this command only works within a directory that is a git repository"
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"26"},
+    {
+      "comment": "commit, pull, and then push",
+      "type": "video",
+      "src": "video/git-commit.mov"
+    },
+    {
+      "type": "code",
+      "text": "➜  lab1 git:(master) ✗ git commit -m \"Replaced default information in web page\"\n[master f283015] Replaced default information in web page\n 1 file changed, 2 insertions(+), 2 deletions(-)\n➜  lab1 git:(master) git pull\nAlready up-to-date.\n➜  lab1 git:(master) git push\nCounting objects: 7, done.\nDelta compression using up to 4 threads.\nCompressing objects: 100% (3/3), done.\nWriting objects: 100% (4/4), 485 bytes | 0 bytes/s, done.\nTotal 4 (delta 2), reused 0 (delta 0)\nTo https://github.com/mbernst/lab1.git\n   1180cca..f283015  master -> master "
+    },
+    {
+      "type": "debug",
+      "list": [{
+        "problem":"Git asks me for my password but it's not showing up",
+        "fix":"Command line terminals typically don't show your password or any ****s while you're typing it. Don't worry, just keep going and press enter at the end. Likewise, if you paste the password into the terminal, you won't see anything. Don't worry, the terminal got the message."
+      },
+      {
+        "problem":"<pre><code>git-credential-osxkeychain died of signal 11</code></pre>",
+        "fix":"If you're willing to enter your password every time you push to git, you can run <code>sudo rm /usr/local/git/etc/gitconfig</code>. That's a pretty huge sledgehammer for this problem, though. <a href='http://stackoverflow.com/questions/14272634/error-git-credential-osxkeychain-died-of-signal-11'>StackOverflow has more solutions.</a>"
+      },
+      {
+        "problem":"When running git commit, git says: <pre class='pre-scrollable'><code>On branch master\nYour branch is up-to-date with 'origin/master'.\nChanges not staged for commit:\nmodified: static/index.html\n\nno changes added to commit</code></pre>",
+        "fix":"Make sure you've done the git add step from <a href='#slide-26'>the previous slide.</a>"
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"27"},
+    {
+      "type": "debug",
+      "list": [{
+        "problem":"Your submission URL will be of the form:",
+        "fix":"<pre>https://github.com/{YOUR_USER_NAME}/lab1</pre>"
+      }]
+    }
+  ],
+  [{"type":"comment", "slidenum":"28"}],
+  [{"type":"comment", "slidenum":"29"}],
+  [{"type":"comment", "slidenum":"30"}],
+  [{"type":"comment", "slidenum":"31"}],
+  [{"type":"comment", "slidenum":"32"}],
+  [{"type":"comment", "slidenum":"33"}],
+  [{"type":"comment", "slidenum":"34"}],
+  [{"type":"comment", "slidenum":"35"}],
+  [{"type":"comment", "slidenum":"36"}],
+  [{"type":"comment", "slidenum":"37"}],
+  [{"type":"comment", "slidenum":"38"}],
+  [{"type":"comment", "slidenum":"39"}],
+  [{"type":"comment", "slidenum":"40"}],
+  [{"type":"comment", "slidenum":"41"}],
+  [{"type":"comment", "slidenum":"42"}],
+  [{"type":"comment", "slidenum":"43"}],
+  [{"type":"comment", "slidenum":"44"}],
+  [{"type":"comment", "slidenum":"45"}],
+  [{"type":"comment", "slidenum":"46"}],
+  [{"type":"comment", "slidenum":"47"}, 
+    {
+      "comment":"last slide",
+      "type": "links",
+      "list": ["<a href='http://tinyurl.com/w17hci-lab1'>Submission link</a>"]
+    }]
+]

@@ -1,0 +1,170 @@
+[
+  [],
+  [],
+  [
+    {
+      "type":"links",
+      "comment":"Get application key",
+      "list":["<a href='https://developers.facebook.com/apps' target=\"_blank\">https://developers.facebook.com/apps</a>"]
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "type":"links",
+      "comment":"Starter code github link",
+      "list":["<a href='https://github.com/DesignAtLarge/lab6/fork' target=\"_blank\">https://github.com/DesignAtLarge/lab6/fork</a>"]
+    },
+    {
+      "type":"debug",
+      "list":[{
+        "problem":"Wait.. <code>node</code> just barfed... what do I do?",
+        "fix":"Try restarting your computer"}]
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "comment": "Include facebook partials + add login button",
+      "type": "code",
+      "title": "Include the partials",
+      "text": "{{&gt; facebook}}\n&lt;script src=\"/js/facebook.js\"&gt;&lt;/script&gt;"
+    },
+    {
+      "type": "code",
+      "title": "Add login button",
+      "text": "&lt;fb:login-button scope=\"public_profile,email\" onlogin=\"checkLoginState();\"&gt;\n&lt;/fb:login-button&gt;"
+    }
+  ],
+  [
+    {
+      "comment": "The facebook.js",
+      "type": "code",
+      "title": "facebook.js",
+      "text": "function checkLoginState() {\n  FB.getLoginStatus(function(response) {\n    statusChangeCallback(response);\n  });\n}\n\nfunction statusChangeCallback(response) {\n  console.log('Facebook login status changed.');\n  console.log(response);\n  // The response object is returned with a status field that lets the\n  // app know the current login status of the person.\n  // Full docs on the response object can be found in the documentation\n  // for FB.getLoginStatus().\n  if (response.status === 'connected') {\n    // Logged into your app and Facebook.\n        console.log('Successfully logged in with Facebook');\n         FB.api('/me?fields=name,first_name,picture.width(480)', changeUser);\n  }\n}"
+    },
+    {
+      "type":"debug",
+      "title":"Heads up!",
+      "list":[{
+        "problem":"Wait how does <code>checkLoginState()</code> get called?",
+        "fix":"If you look in your <code>index.handlebars</code>, we put in the segment <code>onlogin=\"checkLoginState();\"</code>. This means after Facebook is done accepting your login API request, it will call the callback <code>checkLoginState</code> for you. See how varied callbacks can be used!"
+      }]
+    },
+    {
+      "type":"debug",
+      "list":[{
+        "problem":"It's not working!?",
+        "fix":"Check your javascript console in developer tools"
+      }]
+    }
+
+  ],
+  [
+    {
+      "type":"debug",
+      "title":"Hints",
+      "list":[{
+        "problem":"How do I get the name from facebook to replace Scott Klemmer?",
+        "fix":"Remember that the response data from facebook is stored in the <code>response</code> variable in <code>changeUser</code>. What's in <code>response</code>? Try printing it out onto the console!"
+      },
+      {
+        "problem":"How do I get the image from facebook to use in my <code>img</code>?",
+        "fix":"This is going to be similar to how we did it for name. Try peeking into what's inside <code>response</code> by logging it on the console. Try and see if you can get the URL to your facebook image to print onto the console."
+      },
+      {
+        "problem":"How do I replace just the <code>src</code> attribute of <code>img</code>?",
+        "fix":"You can change a single attribute of an element with the jQuery call <code>$.attr('src', <Some new URL>);</code>. Read more about it in the <a href='http://api.jquery.com/attr/#attr2'>jQuery docs!</a>"
+      }]
+    }
+  ],
+  [],
+  [],
+  [],
+  [
+    {
+        "comment":"Google",
+        "type":"video",
+        "src":"video/example-google.mov"
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [    {
+        "comment":"$.get() $.post()",
+        "title":"APIs",
+        "type":"code",
+        "text":"$.get(\"http://URL\", callBackFn)\n\n$.post(\"http://URL\", {\"json\":\"json\"}, callBackFn)"
+      }],
+  [],
+  [    {
+        "comment":"Using the JSON result",
+        "type":"code",
+        "text":"function addProject(result) {\n  var projectHTML = '&lt;a href=\"#\" class=\"thumbnail\"&gt;' +\n    '&lt;img src=\"' + result['image'] + '\" class=\"img\"&gt;' +\n    '&lt;p&gt;' + result['title'] + '&lt;/p&gt;' +\n    '&lt;p&gt;&lt;small&gt;' + result['date'] +\n    '&lt;/small&gt;&lt;/p&gt;&lt;/a&gt;'; \n}"
+      }],
+  [
+    {
+      "comment":"Final Result",
+      "type":"video",
+      "src":"video/final-result.mov"
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [{
+    "comment":"Insert the project details into the page (1)",
+    "type":"debug",
+    "title":"Hint",
+    "list":[{
+      "problem":"I'm having trouble figuring out how to select the right div!",
+      "fix":"Try looking at <a target='_blank' href='../lab3/#slide-21'>lab 3 slide 21</a> for selecting the correct element based on the id. Once you've done that, you're one step away."
+    },
+    {
+      "problem":"I'm still having problems picking the details class out for the specific project id!",
+      "fix":"Yes this is an interesting selector puzzle! You can use selectors to select a hierarchy like so: <a target='_blank' href='../lab3/#slide-22'>slide 22-Selectors:space indicate hierarchy</a> or <a href='https://api.jquery.com/descendant-selector/'>jQuery: Descendant Selector</a>. If you want more practice with selectors, have fun with this game: <a href='http://flukeout.github.io/'>CSS Diner</a>."
+    },
+    {
+      "problem":"Wait, wait! Where do I get the ID from?",
+      "fix":"Ah... another thinker! Without giving too much away, take a look at what is inside the <code>result</code> variable."
+    }]
+  }
+],
+[
+  {
+    "comment":"Insert the project details into the page (2)",
+    "type":"debug",
+    "title":"Hint",
+    "list":[{
+      "problem":"What should it look like when I click a project?",
+      "fix":"<p><a target='_blank' href='images/details_result.png'><img src='images/details_result.png' style='width:90%; margin:auto;'/></a></p>Also see the video in <a target='_blank' href='#slide-34'>slide 34</a>"
+    },
+    {
+      "problem":"How do I create the HTML string?",
+      "fix":"Check back on <a target='_blank' href='#slide-16'>slide 16</a>. It will be very similar to the way we construct the string variable <code>projectHTML</code> in that slide."
+    }]
+}]
+]

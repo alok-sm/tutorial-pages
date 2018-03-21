@@ -1,0 +1,303 @@
+[
+  [],
+  [  
+    { 
+      "type": "links",
+      "title": "Student examples",
+      "list": ["Check out this awesome example from your peer!"]
+    }
+  ], 
+  [
+    {
+      "comment": "first slide",
+      "type": "links",
+      "title": "Get a Heroku Account",
+      "list": ["go to <a href='https://www.heroku.com/'>https://www.heroku.com/</a> and get an account"]
+    }
+  ],
+  [
+    {
+      "comment": "command review cheat sheet",
+      "type": "code",
+      "title": "Common Commands",
+      "text": "ls\ncd &ltdir&gt\ngit clone &lturl&gt\ngit pull\ngit status\ngit add &ltfile&gt\ngit commit -m \"message\"\ngit push"
+    },
+    {
+      "type": "debug",
+      "title": "Git Combos",
+      "list": [{
+        "problem": "Get Updates",
+        "fix": "<pre><code>git pull</code></pre>"
+      },
+      {
+        "problem": "Commit Changes (locally)",
+        "fix": "<pre><code>git status\ngit add &ltfile(s)&gt\ngit status\ngit commit -m \"message\"</code></pre> Run <code>git status</code> to remind yourself which changes you're actually committing."
+      },
+      {
+        "problem": "Save Changes to Github",
+        "fix": "<pre><code>git pull\ngit status\ngit push</code></pre> Run <code>git pull</code> to make sure you're up to date.  Run <code>git status</code> to double-check that you've committed all of the changes you want to save."
+      },
+      {
+        "problem": "Hadouken!",
+        "fix": "↓↘→ X"
+      }]
+    }
+  ],
+  [],
+  [],
+  [],
+  [
+    {
+      "slide": 8,
+      "comment": "fork lab2",
+      "type": "video",
+      "src": "video/git-fork-lab2.mov"
+    },
+    {
+      "type": "links",
+      "list": ["<a href='http://github.com/DesignAtLarge/lab2'>http://github.com/DesignAtLarge/lab2</a>"]
+    }
+  ],
+  [
+    {
+      "slide no": 9,
+      "comment": "summon ye command line",
+      "type": "video",
+      "src": "video/cd.mov"
+    },
+    {
+      "type": "code",
+      "title": "Terminal",
+      "text": "$ cd ~/Documents/IntroHCI\n$ ls\nlab1"
+    },
+    {
+      "type": "debug",
+      "list": [{
+        "problem": "I typed in <code>$ cd</code> and ...",
+        "fix": "Don't type the <code>$</code>.  We are using the <code>$</code> surrogate prompt to indicate lines which are commands to input.  Then, we display lines of expected/example output without any <code>$</code> prompt."
+        }]
+    }
+  ],
+  [
+    {
+      "comment": "copy-paste git clone",
+      "type": "video",
+      "src": ["video/git-clone-copy-lab2.mov",
+              "video/git-clone-paste-lab2.mov"]
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "slide": 25,
+      "comment": "Open static/index.html in Sublime",
+      "type": "video",
+      "src": "video/css-include.mov"
+    },
+    {
+      "type": "code",
+      "text": "...\n&ltlink href=\"css/introHCI.css\" rel=\"stylesheet\"&gt\n..."
+    }
+  ],
+  [],
+  [
+    {
+      "slide": 27,
+      "comment": "Add class=project to the project divs",
+      "type": "video",
+      "src": "video/css-add-class2.mov"
+    },
+    {
+      "type": "code",
+      "text": "...\n&ltdiv class=\"project\" id=\"project1\"&gt\n...\n&ltdiv class=\"project\" id=\"project2\"&gt\n..."
+    }
+  ],
+  [
+    {
+      "slide": 28,
+      "comment": "Add project selector",
+      "type": "video",
+      "src": "video/css-add-selector.mov"
+    },
+    {
+      "type": "code",
+      "text": "...\n\n.project {\n    margin-left: 20px;\n}"
+    }
+  ],
+  [
+    {
+      "comment": "Reload lab2/static/index.html",
+      "type": "links",
+      "title": "Hint",
+      "list": ["CTRL+R (or CMD+R on Mac) is the browser reload shortcut.  It is <i>very</i> useful when doing web dev."]
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "slide": 32,
+      "comment": "Add project selector",
+      "type": "video",
+      "src": "video/chrome-debugger.mov"
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "type": "code",
+      "text": "p {\n    font-variant: small-caps;\n}"
+    }
+  ],
+  [
+    {
+      "type": "code",
+      "text": ".project p {\n    font-variant: small-caps;\n}"
+    }
+  ],
+  [
+    {
+      "type": "code",
+      "text": "#project1 {\n    font-variant: small-caps;\n}"
+    }
+  ],
+  [
+    {
+      "slide": 41,
+      "comment": "Try it: match this look",
+      "type": "code",
+      "text": "margin-left: 1px;\nbackground-color: #ab1234;\npadding: 1px;\nwidth: 1px;"
+    },
+    {
+      "type": "links",
+      "list": ["<a href='https://kuler.adobe.com/create/color-wheel/'>https://kuler.adobe.com/create/color-wheel/</a>"]
+    }
+  ],
+  [],
+  [
+    {
+      "type": "code",
+      "text": ".project {\n    margin-left: 20px;\n    background-color: #deebf7;\n    padding: 20px;\n    width: 525px;\n}"
+    }
+  ],
+  [
+    {
+      "slide": 44,
+      "comment": "Delete the old .project CSS",
+      "type": "video",
+      "src": "video/bootstrap-clear-old-css.mov"
+    }
+  ],
+  [],
+  [],
+  [],
+  [
+    {
+      "slide": 48,
+      "comment": "Add Bootstrap to your HTML",
+      "type": "code",
+      "text": "...\n&lt!-- Bootstrap --&gt\n&ltlink href=\"css/bootstrap.min.css\" rel=\"stylesheet\"&gt\n&ltlink href=\"css/bootstrap-theme.min.css\" rel=\"stylesheet\"&gt\n&ltlink href=\"css/introHCI.css\" rel=\"stylesheet\"&gt\n...\n&lt!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt\n&ltscript src=\"https://code.jquery.com/jquery.js\"&gt&lt/script&gt\n&lt!-- Include all compiled plugins (blelow), or include individual files as needed --&gt\n&ltscript src=\"js/bootstrap.min.js\"&gt&lt/script&gt\n..."
+    }
+  ],
+  [
+    {
+      "slide": 49,
+      "comment": "Add Bootstrap's styles to your HTML",
+      "type": "video",
+      "src": "video/bootstrap-thumbnail2.mov"
+    },
+    {
+      "type": "code",
+      "text": "...\n&lta href=\"project.html\" class=\"thumbnail\"&gt\n    &ltimg src=\"...\" alt=\"...\" class=\"img\"&gt\n    &ltp&gt...&lt/p&gt\n&lt/a&gt\n..."
+    }
+  ],
+  [
+    {
+      "slide": 50,
+      "comment": "Add Bootstrap's styles to your HTML",
+      "type": "video",
+      "src": "video/bootstrap-container.mov"
+    },
+    {
+      "type": "code",
+      "text": "&ltbody&gt\n    &ltdiv class=\"container\"&gt\n        ..."
+    }
+  ],
+  [],
+  [
+    {
+      "comment": "lookin good (adding the jumbotron)",
+      "type": "code",
+      "text": "&ltdiv class=\"jumbotron\"&gt\n    &lth1&gtMichael Bernstein&lt/h1&gt\n    &ltp&gthuman-computer interaction &amp;middot; social computing &amp;middot; crowdsourcing&lt/p&gt\n&lt/div&gt"
+    }
+  ],
+  [],
+  [
+    {
+      "type":"video",
+      "src":"video/js-include.mov"
+    },
+    {
+      "type": "code",
+      "text": "...\n\n\t&lt;script src=\"https://code.jquery.com/jquery.js\"&gt;&lt;/script&gt;\n\t&lt;script src=\"js/bootstrap.min.js\"&gt;&lt;/script&gt;\n\t&lt;script src=\"js/introHCI.js\"&gt;&lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;"
+    }
+  ],
+  [],
+  [
+    {
+      "comment": "Is the Javascript connected correctly?",
+      "type":"video",
+      "src":"video/js-test.mov"
+    }
+  ],
+  [],
+  [
+    {
+      "type":"code",
+      "text":"$(\"a.thumbnail\").click(projectClick);"
+    }
+  ],
+  [
+    {
+      "type": "code",
+      "text": "function projectClick(e) { \n    // prevent the page from reloading      \n    e.preventDefault();\n    // In an event handler, $(this) refers to      \n    // the object that triggered the event      \n    $(this).css(\"background-color\", \"#7fff00\");\n}"
+    }
+  ],
+  [
+  {
+    "type":"video",
+    "src":"video/js-listener.mov"
+  }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  []        
+]

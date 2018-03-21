@@ -1,0 +1,27 @@
+[
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "type":"footnote",
+      "text":"<h2>&rarr; Your part starts here.</h2>"
+    }
+  ],
+  [],
+  [{
+      "type": "code",
+      "title": "Add swipe listener",
+      "text": "$(document).on(&quot;pagecreate&quot;,&quot;#pageone&quot;,function(){ \n  $(&ldquo;.myphoto&rdquo;).on(&quot;swipe&quot;,function(){ \n     $(this).hide(); \n  }); \n});" 
+    }],
+  [],
+  [],
+  [],  
+  [],
+  [{
+      "type": "code",
+      "title": "Add swipe listener",
+      "text": "$(document).on(&quot;pagecreate&quot;,&quot;#pageone&quot;,function(){ \n  $(&ldquo;.myphoto&rdquo;).on(&quot;taphold&quot;,function(){ \n     $(this).hide(); \n  }); \n});" 
+    }]
+]
